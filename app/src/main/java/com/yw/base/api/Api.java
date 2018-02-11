@@ -10,7 +10,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -54,7 +54,7 @@ public class Api {
 
         Retrofit retrofit = new Retrofit.Builder()//建立Retrofit
                 .baseUrl(API_BASE_URL)//连接服务器的基础接口
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//添加Rx适配器
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())//添加Rx适配器
                 .addConverterFactory(GsonConverterFactory.create()) // 添加Gson转换器
                 .client(okHttpClient)//设置OkHttp
                 .build();
